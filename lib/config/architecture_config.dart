@@ -103,7 +103,7 @@ class ${toScreenName(pageName)} extends StatelessWidget {
             onPressed: () {
               $navigateToDetailsPage
             },
-            child: Text("View Page"),
+            child: Text("View Details Page"),
           )
         ''' : '''
           Text("${pageName.capitalize()} Page")

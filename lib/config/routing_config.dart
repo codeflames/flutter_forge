@@ -74,22 +74,20 @@ class Navigator2Parser extends RouteInformationParser {
       case 'GoRouter':
         return '''
 import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
 import '$importPath/home_page.dart';
 import '$importPath/details_page.dart';
 
 final GoRouter router = GoRouter(
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => HomePage(),
-    ),
-    GoRoute(
-      path: '/details',
-      builder: (context, state) => DetailsPage(),
-    ),
+    GoRoute(path: '/', builder: (context, state) => HomePage(), routes: [
+      GoRoute(
+        path: 'details',
+        builder: (context, state) => DetailsPage(),
+      ),
+    ]),
   ],
 );
+
 ''';
 
       case 'AutoRoute':
